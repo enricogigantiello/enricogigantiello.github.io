@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html>
+<script>
+    document.getElementById('files').addEventListener('change', handleFileSelect, false;
+    function handleFileSelect(evt) {
+        var files = evt.target.files,
+            f = files[0],
+            reader = new FileReader(),
+            gbkjson = null;
+        reader.onload = function(e) {
+            gbkjson = gbkToJSON(e.target.result);
+            document.getElementById('json').innerHTML = gbkjson;
+        }
+        reader.readAsText(f);
+    }
+</script>
 <body>
 <h1>Hello World</h1>
 <p>I'm hosted with GitsxasaaassaHub Pages.</p>
